@@ -12,6 +12,7 @@ struct Juice_maker_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .previewInterfaceOrientation(.landscapeRight)
         }
     }
 }
