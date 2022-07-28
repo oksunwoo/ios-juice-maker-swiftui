@@ -37,27 +37,29 @@ struct NavigationSetting: View {
             Rectangle()
                 .frame(height: 0)
                 .background(.gray.opacity(0.2))
-            HStack {
-                Spacer()
+            HStack(spacing: 30) {
                 FruitIconView(fruit: "🍓")
-                Spacer()
                 FruitIconView(fruit: "🍌")
-                Spacer()
                 FruitIconView(fruit: "🍍")
-                Spacer()
                 FruitIconView(fruit: "🥝")
-                Spacer()
                 FruitIconView(fruit: "🥭")
             }
             .padding()
-            HStack {
-                FruitStockView(stock: "2")
-                FruitStockView(stock: "3")
-                FruitStockView(stock: "4")
-                FruitStockView(stock: "2")
-                FruitStockView(stock: "2")
+            HStack(spacing: 18) {
+                FruitStockView(stock: "10")
+                FruitStockView(stock: "10")
+                FruitStockView(stock: "10")
+                FruitStockView(stock: "10")
+                FruitStockView(stock: "10")
             }
-            //Spacer()
+            .padding()
+            HStack(spacing: 18) {
+                OrderButton(content: "딸기쥬스 주문")
+                OrderButton(content: "바나나쥬스 주문")
+                OrderButton(content: "파인애플쥬스 주문")
+                OrderButton(content: "키위쥬스 주문")
+                OrderButton(content: "망고쥬스 주문")
+            }
         }
     }
 }
@@ -94,9 +96,20 @@ struct FruitStockView: View {
     }
 }
 
-
-
-
+struct OrderButton: View {
+    let content: String
+    
+    var body: some View{
+        Button {
+            
+        } label: {
+            Text(content)
+                .foregroundColor(.white)
+        }
+        .background(.blue.opacity(0.8))
+        .border(.black)
+    }
+}
 
 
 
