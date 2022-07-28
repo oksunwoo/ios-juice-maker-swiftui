@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationColor()
+                NavigationSetting()
                     .navigationTitle("맛있는 쥬스를 만들어드려요!")
                     .toolbar {
                         ToolbarItem {
@@ -27,7 +27,7 @@ struct ContentView: View {
     }
 }
 
-struct NavigationColor: View {
+struct NavigationSetting: View {
     var body: some View {
         Color.white
             .opacity(0.1)
@@ -37,12 +37,48 @@ struct NavigationColor: View {
             Rectangle()
                 .frame(height: 0)
                 .background(Color.gray.opacity(0.2))
-            Text("text")
+            HStack {
+                Spacer()
+                FruitIconView(fruit: "🍓")
+                Spacer()
+                FruitIconView(fruit: "🍌")
+                Spacer()
+                FruitIconView(fruit: "🍍")
+                Spacer()
+                FruitIconView(fruit: "🥝")
+                Spacer()
+                FruitIconView(fruit: "🥭")
+            }
                 .padding()
-            Spacer()
+            //Spacer()
         }
     }
 }
+
+struct FruitIconView: View {
+    var fruit: String
+    
+    var body: some View {
+        GeometryReader { geometry in
+            Text(fruit)
+                .font(font(in: geometry.size))
+        }
+    }
+    
+    private func font(in size: CGSize) -> Font {
+        Font.system(size: size.width * DrawingConstants.fontScale)
+    }
+    
+    private struct DrawingConstants {
+        static let fontScale: CGFloat = 0.7
+    }
+}
+
+
+
+
+
+
 
 
 struct ContentView_Previews: PreviewProvider {
