@@ -10,20 +10,40 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            Text("Hello, world!")
-                .navigationTitle("맛있는 쥬스를 만들어드려요!")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            
-                        } label: {
-                            Text("재고수정")
+            ZStack {
+                NavigationColor()
+                    .navigationTitle("맛있는 쥬스를 만들어드려요!")
+                    .toolbar {
+                        ToolbarItem {
+                            Button {
+                                
+                            } label: {
+                                Text("재고 수정")
+                            }
                         }
                     }
-                }
+            }
         }
     }
 }
+
+struct NavigationColor: View {
+    var body: some View {
+        Color.white
+            .opacity(0.1)
+            .ignoresSafeArea()
+        
+        VStack {
+            Rectangle()
+                .frame(height: 0)
+                .background(Color.gray.opacity(0.2))
+            Text("text")
+                .padding()
+            Spacer()
+        }
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
