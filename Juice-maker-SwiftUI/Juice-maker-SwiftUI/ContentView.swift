@@ -36,7 +36,7 @@ struct NavigationSetting: View {
         VStack {
             Rectangle()
                 .frame(height: 0)
-                .background(Color.gray.opacity(0.2))
+                .background(.gray.opacity(0.2))
             HStack {
                 Spacer()
                 FruitIconView(fruit: "🍓")
@@ -49,14 +49,21 @@ struct NavigationSetting: View {
                 Spacer()
                 FruitIconView(fruit: "🥭")
             }
-                .padding()
+            .padding()
+            HStack {
+                FruitStockView(stock: "2")
+                FruitStockView(stock: "3")
+                FruitStockView(stock: "4")
+                FruitStockView(stock: "2")
+                FruitStockView(stock: "2")
+            }
             //Spacer()
         }
     }
 }
 
 struct FruitIconView: View {
-    var fruit: String
+    let fruit: String
     
     var body: some View {
         GeometryReader { geometry in
@@ -74,6 +81,18 @@ struct FruitIconView: View {
     }
 }
 
+struct FruitStockView: View {
+    let stock: String
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .fill()
+                .foregroundColor(.gray.opacity(0.2))
+            Text(stock)
+        }
+    }
+}
 
 
 
