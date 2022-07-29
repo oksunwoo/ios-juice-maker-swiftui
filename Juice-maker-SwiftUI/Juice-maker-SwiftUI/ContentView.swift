@@ -39,15 +39,15 @@ struct JuiceMakerView: View {
             }
             .padding()
             HStack(spacing: 25) {
-                OrderButton(content: "딸기쥬스 주문")
-                OrderButton(content: "바나나쥬스 주문")
-                OrderButton(content: "파인애플쥬스 주문")
-                OrderButton(content: "키위쥬스 주문")
-                OrderButton(content: "망고쥬스 주문")
+                OrderButton(content: "딸기쥬스 주문", width: 120)
+                OrderButton(content: "바나나쥬스 주문", width: 120)
+                OrderButton(content: "파인애플쥬스 주문", width: 120)
+                OrderButton(content: "키위쥬스 주문", width: 120)
+                OrderButton(content: "망고쥬스 주문", width: 120)
             }
-            HStack {
-                OrderButton(content: "딸바쥬스 주문")
-                OrderButton(content: "망키쥬스 주문")
+            HStack(spacing: 170) {
+                OrderButton(content: "딸바쥬스 주문", width: 265)
+                OrderButton(content: "망키쥬스 주문", width: 265)
             }
             .padding()
         }
@@ -59,7 +59,7 @@ struct FruitStockView: View {
     let stock: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Text(fruit)
                 .font(.system(size: 80))
             ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
@@ -79,6 +79,7 @@ struct FruitStockView: View {
 
 struct OrderButton: View {
     let content: String
+    let width: CGFloat
     
     var body: some View {
         Button {
@@ -86,6 +87,7 @@ struct OrderButton: View {
         } label: {
             Text(content)
                 .foregroundColor(.white)
+                .frame(width: width, height: 50, alignment: .center)
                 .multilineTextAlignment(.center)
         }
         .background(.blue.opacity(0.8))
