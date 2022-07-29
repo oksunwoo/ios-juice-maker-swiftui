@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationSetting()
+                JuiceMakerView()
                     .navigationTitle("맛있는 쥬스를 만들어드려요!")
                     .toolbar {
                         ToolbarItem {
@@ -27,16 +27,9 @@ struct ContentView: View {
     }
 }
 
-struct NavigationSetting: View {
+struct JuiceMakerView: View {
     var body: some View {
-        Color.white
-            .opacity(0.1)
-            .ignoresSafeArea()
-        
         VStack {
-            Rectangle()
-                .frame(height: 0)
-                .background(.gray.opacity(0.2))
             HStack(spacing: 18) {
                 FruitStockView(fruit: "🍓", stock: "10")
                 FruitStockView(fruit: "🍌", stock: "10")
@@ -52,7 +45,6 @@ struct NavigationSetting: View {
                 OrderButton(content: "키위쥬스 주문")
                 OrderButton(content: "망고쥬스 주문")
             }
-            .padding()
             HStack {
                 OrderButton(content: "딸바쥬스 주문")
                 OrderButton(content: "망키쥬스 주문")
@@ -68,15 +60,14 @@ struct FruitStockView: View {
     
     var body: some View {
         VStack {
-            GeometryReader { geometry in
-                Text(fruit)
-                    .font(font(in: geometry.size))
-            }
-            ZStack {
-                RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
-                    .fill()
-                    .foregroundColor(.gray.opacity(0.2))
-                Text(stock)
+            Text(fruit)
+                .font(.system(size: 80))
+            ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
+                    RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
+                        .fill()
+                        .foregroundColor(.gray.opacity(0.2))
+                    Text(stock)
+                    .font(.system(size: 30))
             }
         }
     }
@@ -95,16 +86,17 @@ struct OrderButton: View {
         } label: {
             Text(content)
                 .foregroundColor(.white)
-                //.font(.system(size: ))
+                .multilineTextAlignment(.center)
         }
         .background(.blue.opacity(0.8))
         .border(.black)
+        .cornerRadius(5)
     }
 }
 
 private struct DrawingConstants {
     static let cornerRadius: CGFloat = 20
-    static let fontScale: CGFloat = 0.7
+    static let fontScale: CGFloat = 0.4
 }
 
 
