@@ -10,19 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                JuiceMakerView()
-                    .navigationTitle("맛있는 쥬스를 만들어드려요!")
-                    .toolbar {
-                        ToolbarItem {
-                            Button {
-                                
-                            } label: {
-                                Text("재고 수정")
-                            }
+            JuiceMakerView()
+                .navigationTitle("맛있는 쥬스를 만들어드려요!")
+                .toolbar {
+                    ToolbarItem {
+                        Button {
+                            
+                        } label: {
+                            Text("재고 수정")
                         }
                     }
-            }
+                }
         }
     }
 }
@@ -37,7 +35,6 @@ struct JuiceMakerView: View {
                 FruitView(fruit: "🥝")
                 FruitView(fruit: "🥭")
             }
- 
             HStack(spacing: 25) {
                 StockView(stock: 10)
                 StockView(stock: 10)
@@ -82,7 +79,6 @@ struct StockView: View {
                     .frame(width: 120, height: 50)
                 Text("\(stock)")
                 .font(.system(size: 30))
-                
         }
     }
 }
@@ -110,8 +106,6 @@ private struct DrawingConstants {
     static let cornerRadius: CGFloat = 20
     static let fontScale: CGFloat = 0.4
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

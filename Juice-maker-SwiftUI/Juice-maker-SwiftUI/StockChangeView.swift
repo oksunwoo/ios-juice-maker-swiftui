@@ -9,26 +9,13 @@ import SwiftUI
 
 struct StockChangeView: View {
     var body: some View {
-        NavigationView{
-            ZStack {
-                VStack {
-                    HStack(spacing: 18) {
-                        FruitView(fruit: "🍓")
-                        FruitView(fruit: "🍌")
-                        FruitView(fruit: "🍍")
-                        FruitView(fruit: "🥝")
-                        FruitView(fruit: "🥭")
-                    }
-                    .padding()
-                    HStack {
-                        StockStepper()
-                        StockStepper()
-                        StockStepper()
-                        StockStepper()
-                        StockStepper()
-                    }
-                    .padding()
-                }
+        NavigationView {
+            HStack(alignment: .top, spacing: 25) {
+                StockStepper(fruit: "🍓")
+                StockStepper(fruit: "🍌")
+                StockStepper(fruit: "🍍")
+                StockStepper(fruit: "🥝")
+                StockStepper(fruit: "🥭")
             }
             .navigationTitle("재고추가")
             .toolbar {
@@ -38,7 +25,6 @@ struct StockChangeView: View {
                     } label: {
                         Text("닫기")
                     }
-
                 }
             }
         }
@@ -46,12 +32,19 @@ struct StockChangeView: View {
 }
 
 struct StockStepper: View {
+    let fruit: String
     @State var stock = 10
     
     var body: some View {
-        Stepper(value: $stock) {
-            
+        VStack(alignment: .center, spacing: 10) {
+            FruitView(fruit: fruit)
+            StockView(stock: stock)
+            Stepper(value: $stock) {
+                
+            }
+            .padding(.trailing)
         }
+        .padding(.bottom, 80)
     }
 }
 
