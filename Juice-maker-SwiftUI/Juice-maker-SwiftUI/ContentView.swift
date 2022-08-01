@@ -31,11 +31,11 @@ struct JuiceMakerView: View {
     var body: some View {
         VStack {
             HStack(spacing: 18) {
-                FruitStockView(fruit: "🍓", stock: "10")
-                FruitStockView(fruit: "🍌", stock: "10")
-                FruitStockView(fruit: "🍍", stock: "10")
-                FruitStockView(fruit: "🥝", stock: "10")
-                FruitStockView(fruit: "🥭", stock: "10")
+                FruitView(fruit: "🍓")
+                FruitView(fruit: "🍌")
+                FruitView(fruit: "🍍")
+                FruitView(fruit: "🥝")
+                FruitView(fruit: "🥭")
             }
             .padding()
             HStack(spacing: 25) {
@@ -54,28 +54,32 @@ struct JuiceMakerView: View {
     }
 }
 
-struct FruitStockView: View {
+struct FruitView: View {
     let fruit: String
-    let stock: String
     
     var body: some View {
         VStack(spacing: 10) {
             Text(fruit)
                 .font(.system(size: 80))
-            ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
-                    RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
-                        .fill()
-                        .foregroundColor(.gray.opacity(0.2))
-                    Text(stock)
-                    .font(.system(size: 30))
-            }
         }
     }
+}
+
+struct StockView: View {
+    let stock: String
     
-    private func font(in size: CGSize) -> Font {
-        Font.system(size: size.width * DrawingConstants.fontScale)
+    var body: some View {
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
+                RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
+                    .fill()
+                    .foregroundColor(.gray.opacity(0.2))
+                Text(stock)
+                .font(.system(size: 30))
+        }
     }
 }
+
+
 
 struct OrderButton: View {
     let content: String

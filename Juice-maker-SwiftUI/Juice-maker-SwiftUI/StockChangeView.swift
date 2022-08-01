@@ -13,11 +13,11 @@ struct StockChangeView: View {
             ZStack {
                 VStack {
                     HStack(spacing: 18) {
-                        FruitStockView(fruit: "🍓", stock: "10")
-                        FruitStockView(fruit: "🍌", stock: "10")
-                        FruitStockView(fruit: "🍍", stock: "10")
-                        FruitStockView(fruit: "🥝", stock: "10")
-                        FruitStockView(fruit: "🥭", stock: "10")
+                        FruitView(fruit: "🍓")
+                        FruitView(fruit: "🍌")
+                        FruitView(fruit: "🍍")
+                        FruitView(fruit: "🥝")
+                        FruitView(fruit: "🥭")
                     }
                     .padding()
                     HStack {
