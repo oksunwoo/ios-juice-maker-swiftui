@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showModal = false
+    
     var body: some View {
         NavigationView {
             JuiceMakerView()
@@ -15,9 +17,12 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItem {
                         Button {
-                            
+                            self.showModal = true
                         } label: {
                             Text("재고 수정")
+                        }
+                        .sheet(isPresented: self.$showModal) {
+                            StockChangeView()
                         }
                     }
                 }
