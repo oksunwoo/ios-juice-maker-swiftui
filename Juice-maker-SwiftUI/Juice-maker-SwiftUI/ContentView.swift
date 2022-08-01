@@ -29,15 +29,22 @@ struct ContentView: View {
 
 struct JuiceMakerView: View {
     var body: some View {
-        VStack {
-            HStack(spacing: 18) {
+        VStack(spacing: 15) {
+            HStack(spacing: 60) {
                 FruitView(fruit: "🍓")
                 FruitView(fruit: "🍌")
                 FruitView(fruit: "🍍")
                 FruitView(fruit: "🥝")
                 FruitView(fruit: "🥭")
             }
-            .padding()
+ 
+            HStack(spacing: 25) {
+                StockView(stock: 10)
+                StockView(stock: 10)
+                StockView(stock: 10)
+                StockView(stock: 10)
+                StockView(stock: 10)
+            }
             HStack(spacing: 25) {
                 OrderButton(content: "딸기쥬스 주문", width: 120)
                 OrderButton(content: "바나나쥬스 주문", width: 120)
@@ -49,7 +56,6 @@ struct JuiceMakerView: View {
                 OrderButton(content: "딸바쥬스 주문", width: 265)
                 OrderButton(content: "망키쥬스 주문", width: 265)
             }
-            .padding()
         }
     }
 }
@@ -66,20 +72,20 @@ struct FruitView: View {
 }
 
 struct StockView: View {
-    let stock: String
+    let stock: Int
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
                 RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
                     .fill()
                     .foregroundColor(.gray.opacity(0.2))
-                Text(stock)
+                    .frame(width: 120, height: 50)
+                Text("\(stock)")
                 .font(.system(size: 30))
+                
         }
     }
 }
-
-
 
 struct OrderButton: View {
     let content: String
