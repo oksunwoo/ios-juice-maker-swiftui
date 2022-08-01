@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StockChangeView: View {
+    @Binding var showModal: Bool
+    
     var body: some View {
         NavigationView {
             HStack(alignment: .top, spacing: 25) {
@@ -21,7 +23,7 @@ struct StockChangeView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        
+                        showModal = false
                     } label: {
                         Text("닫기")
                     }
@@ -50,7 +52,7 @@ struct StockStepper: View {
 
 struct StockChangeView_Previews: PreviewProvider {
     static var previews: some View {
-        StockChangeView()
+        StockChangeView(showModal: .constant(true))
             .previewInterfaceOrientation(.landscapeRight)
     }
 }

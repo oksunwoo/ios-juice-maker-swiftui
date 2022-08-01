@@ -22,7 +22,7 @@ struct ContentView: View {
                             Text("재고 수정")
                         }
                         .sheet(isPresented: self.$showModal) {
-                            StockChangeView()
+                            StockChangeView(showModal: $showModal)
                         }
                     }
                 }
