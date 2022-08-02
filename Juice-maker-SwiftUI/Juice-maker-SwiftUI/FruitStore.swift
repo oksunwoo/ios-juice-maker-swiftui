@@ -7,23 +7,20 @@
 
 import Foundation
 
+struct Fruit {
+    var name: String
+    var stock: Int
+    
+    init(name: String, stock: Int = FruitStore.initialStock) {
+        self.name = name
+        self.stock = stock
+    }
+}
+
 class FruitStore {
     static let initialStock = 10
     
-    private(set) var strawberryStock: Int
-    private(set) var bananaStock: Int
-    private(set) var pineappleStock: Int
-    private(set) var kiwiStock: Int
-    private(set) var mangoStock: Int
-    
-    init(strawberryStock: Int = FruitStore.initialStock, bananaStock: Int = FruitStore.initialStock,
-         pineappleStock: Int = FruitStore.initialStock, kiwiStock: Int = FruitStore.initialStock, mangoStock: Int = FruitStore.initialStock) {
-        self.strawberryStock = strawberryStock
-        self.bananaStock = bananaStock
-        self.pineappleStock = pineappleStock
-        self.kiwiStock = kiwiStock
-        self.mangoStock = mangoStock
+    init() {
+
     }
-    
-    
 }
