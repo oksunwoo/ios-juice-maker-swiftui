@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct Fruit {
-    var name: String
-    var stock: Int
-    
-    init(name: String, stock: Int = FruitStore.initialStock) {
-        self.name = name
-        self.stock = stock
-    }
-}
-
 class FruitStore {
+    enum Fruit: CaseIterable {
+        case strawberry
+        case banana
+        case pineapple
+        case kiwi
+        case mango
+    }
+    
     static let initialStock = 10
     
+    var fruitstock: [[Fruit:Int]]
+    
     init() {
-
+        
     }
 }
