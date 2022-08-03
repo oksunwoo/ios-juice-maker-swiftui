@@ -18,12 +18,20 @@ class FruitStore {
         case mango
     }
 
-    private(set) var fruitstock: [Fruit:Int]
+    private(set) var fruitStock: [Fruit:Int]
     
     init() {
         let fruits = Fruit.allCases
         let fruitCount = Array(repeating: FruitStore.initialStock, count: fruits.count)
         
-        fruitstock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
+        fruitStock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
+    }
+    
+    func change(amount: Int, of fruit: Fruit) {
+        guard var stock = fruitStock[fruit] else {
+            return
+        }
+        
+        stock += amount
     }
 }
