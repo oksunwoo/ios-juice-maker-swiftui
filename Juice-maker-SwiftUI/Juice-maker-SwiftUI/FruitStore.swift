@@ -8,6 +8,8 @@
 import Foundation
 
 class FruitStore {
+    static let initialStock = 10
+    
     enum Fruit: CaseIterable {
         case strawberry
         case banana
@@ -15,12 +17,13 @@ class FruitStore {
         case kiwi
         case mango
     }
-    
-    static let initialStock = 10
-    
-    var fruitstock: [[Fruit:Int]]
+
+    private(set) var fruitstock: [Fruit:Int]
     
     init() {
+        let fruits = Fruit.allCases
+        let fruitCount = Array(repeating: FruitStore.initialStock, count: fruits.count)
         
+        fruitstock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
     }
 }
