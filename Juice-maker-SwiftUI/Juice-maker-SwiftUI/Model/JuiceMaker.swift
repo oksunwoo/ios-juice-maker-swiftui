@@ -39,4 +39,9 @@ struct JuiceMaker {
             }
         }
     }
+    
+    func make(_ juice: Juice) {
+        let recipe = juice.recipe
+        fruitStore.changeFruitStock(for: recipe)
+    }
 }

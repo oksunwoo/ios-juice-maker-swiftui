@@ -27,11 +27,13 @@ class FruitStore {
         fruitStock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
     }
     
-    func change(amount: Int, of fruit: Fruit) {
-        guard var stock = fruitStock[fruit] else {
-            return
+    func changeFruitStock(for fruits: [Fruit:Int]) {
+        for (fruit, amount) in fruits {
+            guard let currentStock = fruitStock[fruit] else {
+                return
+            }
+            
+            fruitStock.updateValue(currentStock + amount, forKey: fruit)
         }
-        
-        stock += amount
     }
 }
