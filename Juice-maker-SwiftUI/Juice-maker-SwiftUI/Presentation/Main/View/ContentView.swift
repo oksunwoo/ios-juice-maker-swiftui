@@ -41,11 +41,11 @@ struct JuiceMakerView: View {
                 FruitView(fruit: "🥭")
             }
             HStack(spacing: 25) {
-                StockView(stock: 10)
-                StockView(stock: 10)
-                StockView(stock: 10)
-                StockView(stock: 10)
-                StockView(stock: 10)
+                StockView(stock: 10, fruit: .strawberry)
+                StockView(stock: 10, fruit: .banana)
+                StockView(stock: 10, fruit: .pineapple)
+                StockView(stock: 10, fruit: .kiwi)
+                StockView(stock: 10, fruit: .mango)
             }
             HStack(spacing: 25) {
                 OrderButton(content: "딸기쥬스 주문", width: 120)
@@ -75,6 +75,7 @@ struct FruitView: View {
 
 struct StockView: View {
     let stock: Int
+    let fruit: Fruits
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
@@ -85,6 +86,14 @@ struct StockView: View {
                 Text("\(stock)")
                 .font(.system(size: 30))
         }
+    }
+    
+    enum Fruits {
+        case strawberry
+        case banana
+        case pineapple
+        case kiwi
+        case mango
     }
 }
 
