@@ -7,15 +7,15 @@
 
 import Foundation
 
-class MainViewModel {
-    var model = JuiceMaker()
+class MainViewModel: ObservableObject {
+    @Published var model = JuiceMaker()
     
     init() {
         
     }
     
-    func matchFruitWithStock(view: StockView) -> FruitStore.Fruit {
-        switch view.fruit {
+    func match(fruit: StockView.Fruits) -> FruitStore.Fruit {
+        switch fruit {
         case .strawberry:
             return .strawberry
         case .banana:
@@ -29,9 +29,9 @@ class MainViewModel {
         }
     }
     
-    func showStockOfFruit(view: StockView) -> Int {
-        let fruit = matchFruitWithStock(view: view)
-        guard let stock = model.fruitStore.showStockOf(fruit: fruit) else {
+    func showStockOf(fruit: StockView.Fruits) -> Int {
+        let fruit = match(fruit: fruit)
+        guard let stock = model.fruitStore.getStockOf(fruit) else {
             return 0
         }
         

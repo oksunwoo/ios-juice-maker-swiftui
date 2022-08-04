@@ -41,11 +41,11 @@ struct JuiceMakerView: View {
                 FruitView(fruit: "🥭")
             }
             HStack(spacing: 25) {
-                StockView(stock: 10, fruit: .strawberry)
-                StockView(stock: 10, fruit: .banana)
-                StockView(stock: 10, fruit: .pineapple)
-                StockView(stock: 10, fruit: .kiwi)
-                StockView(stock: 10, fruit: .mango)
+                StockView(fruit: .strawberry)
+                StockView(fruit: .banana)
+                StockView(fruit: .pineapple)
+                StockView(fruit: .kiwi)
+                StockView(fruit: .mango)
             }
             HStack(spacing: 25) {
                 OrderButton(content: "딸기쥬스 주문", width: 120)
@@ -74,7 +74,7 @@ struct FruitView: View {
 }
 
 struct StockView: View {
-    let stock: Int
+    @ObservedObject var viewModel = MainViewModel()
     let fruit: Fruits
     
     var body: some View {
@@ -83,7 +83,7 @@ struct StockView: View {
                     .fill()
                     .foregroundColor(.gray.opacity(0.2))
                     .frame(width: 120, height: 50)
-                Text("\(stock)")
+            Text("\(viewModel.showStockOf(fruit: fruit))")
                 .font(.system(size: 30))
         }
     }

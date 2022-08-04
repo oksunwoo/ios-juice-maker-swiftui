@@ -35,12 +35,13 @@ struct StockChangeView: View {
 
 struct StockStepper: View {
     let fruit: String
+    let fruits: StockView.Fruits
     @State var stock = 10
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             FruitView(fruit: fruit)
-            StockView(stock: stock)
+            StockView(fruit: fruits)
             Stepper(value: $stock) {
                 
             }

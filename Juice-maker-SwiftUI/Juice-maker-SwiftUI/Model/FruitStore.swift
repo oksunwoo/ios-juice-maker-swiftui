@@ -25,7 +25,7 @@ class FruitStore {
         fruitStock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
     }
     
-    func showStockOf(fruit: Fruit) -> Int? {
+    func getStockOf(_ fruit: Fruit) -> Int? {
         guard let currentStock = fruitStock[fruit] else {
             return nil
         }
