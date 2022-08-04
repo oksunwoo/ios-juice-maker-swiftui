@@ -14,7 +14,7 @@ class MainViewModel: ObservableObject {
         
     }
     
-    func match(fruit: StockView.Fruits) -> FruitStore.Fruit {
+    func match(fruit: Fruits) -> FruitStore.Fruit {
         switch fruit {
         case .strawberry:
             return .strawberry
@@ -29,7 +29,7 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    func showStockOf(fruit: StockView.Fruits) -> Int {
+    func showStockOf(fruit: Fruits) -> Int {
         let fruit = match(fruit: fruit)
         guard let stock = model.fruitStore.getStockOf(fruit) else {
             return 0

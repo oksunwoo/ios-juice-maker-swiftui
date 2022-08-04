@@ -13,11 +13,11 @@ struct StockChangeView: View {
     var body: some View {
         NavigationView {
             HStack(alignment: .top, spacing: 25) {
-                StockStepper(fruit: "🍓")
-                StockStepper(fruit: "🍌")
-                StockStepper(fruit: "🍍")
-                StockStepper(fruit: "🥝")
-                StockStepper(fruit: "🥭")
+                StockStepper(fruit: .strawberry)
+                StockStepper(fruit: .banana)
+                StockStepper(fruit: .pineapple)
+                StockStepper(fruit: .kiwi)
+                StockStepper(fruit: .mango)
             }
             .navigationTitle("재고추가")
             .toolbar {
@@ -34,14 +34,13 @@ struct StockChangeView: View {
 }
 
 struct StockStepper: View {
-    let fruit: String
-    let fruits: StockView.Fruits
+    let fruit: Fruits
     @State var stock = 10
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             FruitView(fruit: fruit)
-            StockView(fruit: fruits)
+            StockView(fruit: fruit)
             Stepper(value: $stock) {
                 
             }

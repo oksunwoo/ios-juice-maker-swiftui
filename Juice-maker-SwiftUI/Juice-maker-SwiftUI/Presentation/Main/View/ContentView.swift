@@ -34,11 +34,11 @@ struct JuiceMakerView: View {
     var body: some View {
         VStack(spacing: 15) {
             HStack(spacing: 60) {
-                FruitView(fruit: "🍓")
-                FruitView(fruit: "🍌")
-                FruitView(fruit: "🍍")
-                FruitView(fruit: "🥝")
-                FruitView(fruit: "🥭")
+                FruitView(fruit: .strawberry)
+                FruitView(fruit: .banana)
+                FruitView(fruit: .pineapple)
+                FruitView(fruit: .kiwi)
+                FruitView(fruit: .mango)
             }
             HStack(spacing: 25) {
                 StockView(fruit: .strawberry)
@@ -63,11 +63,11 @@ struct JuiceMakerView: View {
 }
 
 struct FruitView: View {
-    let fruit: String
+    let fruit: Fruits
     
     var body: some View {
         VStack(spacing: 10) {
-            Text(fruit)
+            Text(fruit.emoji)
                 .font(.system(size: 80))
         }
     }
@@ -87,14 +87,6 @@ struct StockView: View {
                 .font(.system(size: 30))
         }
     }
-    
-    enum Fruits {
-        case strawberry
-        case banana
-        case pineapple
-        case kiwi
-        case mango
-    }
 }
 
 struct OrderButton: View {
@@ -113,6 +105,29 @@ struct OrderButton: View {
         .background(.blue.opacity(0.8))
         .border(.black)
         .cornerRadius(5)
+    }
+}
+
+enum Fruits {
+    case strawberry
+    case banana
+    case pineapple
+    case kiwi
+    case mango
+    
+    var emoji: String {
+        switch self {
+        case .strawberry:
+            return "🍓"
+        case .banana:
+            return "🍌"
+        case .pineapple:
+            return "🍍"
+        case .kiwi:
+            return "🥝"
+        case .mango:
+            return "🥭"
+        }
     }
 }
 
