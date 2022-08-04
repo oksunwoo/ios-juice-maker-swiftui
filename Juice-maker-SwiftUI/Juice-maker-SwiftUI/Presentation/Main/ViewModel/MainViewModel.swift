@@ -28,4 +28,13 @@ class MainViewModel {
             return .mango
         }
     }
+    
+    func showStockOfFruit(view: StockView) -> Int {
+        let fruit = matchFruitWithStock(view: view)
+        guard let stock = model.fruitStore.showStockOf(fruit: fruit) else {
+            return 0
+        }
+        
+        return stock
+    }
 }
