@@ -38,6 +38,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53AEB868289BA26500FF53E6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				53AEB869289BA28500FF53E6 /* Main */,
+				53AEB86A289BA2A200FF53E6 /* StockChange */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		53AEB869289BA28500FF53E6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				53AEB86B289BA2C200FF53E6 /* View */,
+				53AEB86C289BA2C900FF53E6 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		53AEB86A289BA2A200FF53E6 /* StockChange */ = {
+			isa = PBXGroup;
+			children = (
+				53AEB86D289BA2E200FF53E6 /* View */,
+				53AEB86E289BA2EA00FF53E6 /* ViewModel */,
+			);
+			path = StockChange;
+			sourceTree = "<group>";
+		};
+		53AEB86B289BA2C200FF53E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53FC6B40289170BC00CF896B /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		53AEB86C289BA2C900FF53E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		53AEB86D289BA2E200FF53E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53FC6B4E2893BEEB00CF896B /* StockChangeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		53AEB86E289BA2EA00FF53E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		53DA2563289A821300400879 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -45,15 +102,6 @@
 				53FC6B4C289278C700CF896B /* FruitStore.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		53DA2564289A822E00400879 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				53FC6B40289170BC00CF896B /* ContentView.swift */,
-				53FC6B4E2893BEEB00CF896B /* StockChangeView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		53FC6B32289170BC00CF896B = {
@@ -76,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				53FC6B3E289170BC00CF896B /* Juice_maker_SwiftUIApp.swift */,
+				53AEB868289BA26500FF53E6 /* Presentation */,
 				53DA2563289A821300400879 /* Model */,
-				53DA2564289A822E00400879 /* View */,
 				53FC6B42289170BE00CF896B /* Assets.xcassets */,
 				53FC6B44289170BE00CF896B /* Preview Content */,
 			);
