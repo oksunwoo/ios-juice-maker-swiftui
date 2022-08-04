@@ -13,5 +13,19 @@ class MainViewModel {
     init() {
         
     }
-
+    
+    func matchFruitWithStock(view: StockView) -> FruitStore.Fruit {
+        switch view.fruit {
+        case .strawberry:
+            return .strawberry
+        case .banana:
+            return .banana
+        case .pineapple:
+            return .pineapple
+        case .kiwi:
+            return .kiwi
+        case .mango:
+            return .mango
+        }
+    }
 }
