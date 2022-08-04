@@ -27,7 +27,14 @@ class FruitStore {
         fruitStock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
     }
     
-    func changeFruitStock(for fruits: [Fruit:Int]) {
+    func consumeFruits(for fruits: [Fruit: Int]) {
+        for (fruit, amount) in fruits {
+            let fruit = [fruit: amount * -1]
+            changeStock(of: fruit)
+        }
+    }
+
+    func changeStock(of fruits: [Fruit:Int]) {
         for (fruit, amount) in fruits {
             guard let currentStock = fruitStock[fruit] else {
                 return
