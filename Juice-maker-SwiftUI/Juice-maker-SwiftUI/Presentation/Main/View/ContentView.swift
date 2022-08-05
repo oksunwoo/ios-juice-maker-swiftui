@@ -48,15 +48,15 @@ struct JuiceMakerView: View {
                 StockView(fruit: .mango)
             }
             HStack(spacing: 25) {
-                OrderButton(content: "딸기쥬스 주문", width: 120)
-                OrderButton(content: "바나나쥬스 주문", width: 120)
-                OrderButton(content: "파인애플쥬스 주문", width: 120)
-                OrderButton(content: "키위쥬스 주문", width: 120)
-                OrderButton(content: "망고쥬스 주문", width: 120)
+                OrderButton(juice: .strawberryJuice, width: 120)
+                OrderButton(juice: .bananaJuice, width: 120)
+                OrderButton(juice: .pineappleJuice, width: 120)
+                OrderButton(juice: .kiwiJuice, width: 120)
+                OrderButton(juice: .mangoJuice, width: 120)
             }
             HStack(spacing: 170) {
-                OrderButton(content: "딸바쥬스 주문", width: 265)
-                OrderButton(content: "망키쥬스 주문", width: 265)
+                OrderButton(juice: .strawberryBananaJuice, width: 265)
+                OrderButton(juice: .mangoKiwiJuice, width: 265)
             }
         }
     }
@@ -90,14 +90,14 @@ struct StockView: View {
 }
 
 struct OrderButton: View {
-    let content: String
+    let juice: Juice
     let width: CGFloat
     
     var body: some View {
         Button {
             
         } label: {
-            Text(content)
+            Text(juice.description + " 주문")
                 .foregroundColor(.white)
                 .frame(width: width, height: 50, alignment: .center)
                 .multilineTextAlignment(.center)
@@ -105,6 +105,35 @@ struct OrderButton: View {
         .background(.blue.opacity(0.8))
         .border(.black)
         .cornerRadius(5)
+    }
+    
+    enum Juice {
+        case strawberryJuice
+        case bananaJuice
+        case pineappleJuice
+        case kiwiJuice
+        case mangoJuice
+        case strawberryBananaJuice
+        case mangoKiwiJuice
+        
+        var description: String {
+            switch self {
+            case .strawberryJuice:
+                return "딸기쥬스"
+            case .bananaJuice:
+                return "바나나쥬스"
+            case .pineappleJuice:
+                return "파인애플쥬스"
+            case .kiwiJuice:
+                return "키위쥬스"
+            case .mangoJuice:
+                return "망고쥬스"
+            case .strawberryBananaJuice:
+                return "딸바쥬스"
+            case .mangoKiwiJuice:
+                return "망키쥬스"
+            }
+        }
     }
 }
 

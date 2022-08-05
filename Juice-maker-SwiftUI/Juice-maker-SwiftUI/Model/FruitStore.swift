@@ -38,6 +38,7 @@ class FruitStore {
             let fruit = [fruit: amount * -1]
             changeStock(of: fruit)
         }
+        //print(fruitStock)
     }
 
     func changeStock(of fruits: [Fruit:Int]) {

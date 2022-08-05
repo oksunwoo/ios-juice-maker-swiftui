@@ -29,6 +29,30 @@ class MainViewModel: ObservableObject {
         }
     }
     
+    func match(juice: OrderButton.Juice) -> JuiceMaker.Juice {
+        switch juice {
+        case .strawberryJuice:
+            return .strawberryJuice
+        case .bananaJuice:
+            return .bananaJuice
+        case .pineappleJuice:
+            return .pineappleJuice
+        case .kiwiJuice:
+            return .kiwiJuice
+        case .mangoJuice:
+            return .mangoJuice
+        case .strawberryBananaJuice:
+            return .strawberryBananaJuice
+        case .mangoKiwiJuice:
+            return .mangoKiwiJuice
+        }
+    }
+    
+    func order(juice: OrderButton.Juice) {
+        let juice = match(juice: juice)
+        model.make(juice)
+    }
+    
     func showStockOf(fruit: Fruits) -> Int {
         let fruit = match(fruit: fruit)
         guard let stock = model.fruitStore.getStockOf(fruit) else {
