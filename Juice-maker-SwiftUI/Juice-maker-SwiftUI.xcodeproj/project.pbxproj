@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53AB6D7728A2463900B253DA /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB6D7628A2463900B253DA /* Fruit.swift */; };
 		53DA2562289A81F600400879 /* JuiceMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA2561289A81F600400879 /* JuiceMaker.swift */; };
 		53FC6B3F289170BC00CF896B /* Juice_maker_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC6B3E289170BC00CF896B /* Juice_maker_SwiftUIApp.swift */; };
 		53FC6B41289170BC00CF896B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC6B40289170BC00CF896B /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53AB6D7628A2463900B253DA /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		53DA2561289A81F600400879 /* JuiceMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceMaker.swift; sourceTree = "<group>"; };
 		53FC6B3B289170BC00CF896B /* Juice-maker-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juice-maker-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FC6B3E289170BC00CF896B /* Juice_maker_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Juice_maker_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				53DA2561289A81F600400879 /* JuiceMaker.swift */,
 				53FC6B4C289278C700CF896B /* FruitStore.swift */,
+				53AB6D7628A2463900B253DA /* Fruit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AB6D7728A2463900B253DA /* Fruit.swift in Sources */,
 				53FC6B41289170BC00CF896B /* ContentView.swift in Sources */,
 				53DA2562289A81F600400879 /* JuiceMaker.swift in Sources */,
 				53FC6B4D289278C700CF896B /* FruitStore.swift in Sources */,

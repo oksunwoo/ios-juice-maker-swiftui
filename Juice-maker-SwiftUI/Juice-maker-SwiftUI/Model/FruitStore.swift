@@ -8,14 +8,6 @@
 import Foundation
 
 class FruitStore {
-    enum Fruit: CaseIterable {
-        case strawberry
-        case banana
-        case pineapple
-        case kiwi
-        case mango
-    }
-
     private(set) var fruitStock: [Fruit:Int]
     
     init(initialStock: Int) {
@@ -38,7 +30,6 @@ class FruitStore {
             let fruit = [fruit: amount * -1]
             changeStock(of: fruit)
         }
-        //print(fruitStock)
     }
 
     func changeStock(of fruits: [Fruit:Int]) {
