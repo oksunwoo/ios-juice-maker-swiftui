@@ -9,8 +9,7 @@ import Foundation
 
 struct JuiceMaker {
     private(set) var fruitStore = FruitStore(chosenFruits: ChosenFruits.allCases, initialStock: 10)
-    
-    typealias Recipe = [Fruit: Int]
+    typealias Recipe = [ChosenFruits: Int]
     
     enum Juice {
         case strawberryJuice
@@ -43,6 +42,8 @@ struct JuiceMaker {
     
     func make(_ juice: Juice) {
         let recipe = juice.recipe
-        fruitStore.consumeFruits(for: recipe)
+        for (fruit, amount) in recipe {
+            fruitStore.consumeFruits(for: fruit, amount: amount)
+        }
     }
 }

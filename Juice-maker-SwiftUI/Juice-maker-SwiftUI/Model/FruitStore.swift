@@ -16,26 +16,26 @@ class FruitStore {
         }
     }
     
-    func findIndexOf(_ fruit: Fruit) -> Int {
+    func findIndexOf(_ fruit: ChosenFruits) -> Int {
         for index in 0..<fruits.count {
-            if fruits[index].name == fruit.name {
+            if fruits[index].name == fruit.rawValue {
                return index
             }
         }
     }
     
-    func getStockOf(_ fruit: Fruit) -> Int {
+    func getStockOf(_ fruit: ChosenFruits) -> Int {
         let index = findIndexOf(fruit)
         let stock = fruits[index].amount
         
         return stock
     }
     
-    func consumeFruits(for fruit: Fruit, amount: Int) {
+    func consumeFruits(for fruit: ChosenFruits, amount: Int) {
         changeStock(of: fruit, amount: amount * -1)
     }
 
-    func changeStock(of fruit: Fruit, amount: Int) {
+    func changeStock(of fruit: ChosenFruits, amount: Int) {
         let index = findIndexOf(fruit)
         fruits[index].amount += amount
     }
