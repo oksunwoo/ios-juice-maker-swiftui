@@ -13,10 +13,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("regame")
                 HStack {
-                    ForEach(juiceMaker.fruitStore.test) { <#Int#> in
-                        <#code#>
+                    ForEach(juiceMaker.fruitStore.fruits) { fruit in
+                        FruitView(fruit: fruit)
                     }
                 }
                     .navigationTitle("맛있는 쥬스를 만들어드려요!")
@@ -27,7 +26,6 @@ struct ContentView: View {
 }
 
 struct FruitView: View {
-    let fruitStore: FruitStore
     let fruit: Fruit
     
     var body: some View {
@@ -38,7 +36,7 @@ struct FruitView: View {
                     .fill()
                     .foregroundColor(.gray)
                     .opacity(0.3)
-                Text("\(fruitStore.getStockOf(fruit))")
+                Text("\(fruit.amount)")
             }
         }
     }

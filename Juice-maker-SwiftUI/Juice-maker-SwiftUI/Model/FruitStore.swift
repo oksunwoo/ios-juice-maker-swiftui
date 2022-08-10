@@ -8,7 +8,7 @@
 import Foundation
 
 class FruitStore {
-    private(set) var fruits: [Fruit]
+    private(set) var fruits: [Fruit] = []
     
     init(chosenFruits: [ChosenFruits], initialStock: Int) {
         chosenFruits.forEach { fruit in
@@ -22,6 +22,8 @@ class FruitStore {
                return index
             }
         }
+        
+        return -1
     }
     
     func getStockOf(_ fruit: ChosenFruits) -> Int {
