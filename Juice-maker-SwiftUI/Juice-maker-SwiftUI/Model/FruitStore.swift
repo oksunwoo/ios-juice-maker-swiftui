@@ -31,8 +31,8 @@ class FruitStore {
         return stock
     }
     
-    func consumeFruits(for fruits: Fruit, amount: Int) {
-        
+    func consumeFruits(for fruit: Fruit, amount: Int) {
+        changeStock(of: fruit, amount: amount * -1)
     }
 
     func changeStock(of fruit: Fruit, amount: Int) {
