@@ -10,7 +10,7 @@ import Foundation
 struct Fruit: Identifiable {
     let name: String
     let emoji: String
-    let amount: Int
+    var amount: Int
     
     var id: String {
         self.name

@@ -10,34 +10,33 @@ import Foundation
 class FruitStore {
     private(set) var fruits: [Fruit]
     
-    init(chosenFruits:[ChosenFruits], initialStock: Int) {
+    init(chosenFruits: [ChosenFruits], initialStock: Int) {
         chosenFruits.forEach { fruit in
             fruits.append(Fruit(name: fruit.rawValue, emoji: fruit.emoji, amount: initialStock))
         }
     }
     
-    func getStockOf(_ fruit: Fruit) -> Int {
-        guard let currentStock = fruitStock[fruit] else {
-            return -1
+    func findIndexOf(_ fruit: Fruit) -> Int {
+        for index in 0..<fruits.count {
+            if fruits[index].name == fruit.name {
+               return index
+            }
         }
-        
-        return currentStock
     }
     
-    func consumeFruits(for fruits: [Fruit: Int]) {
-        for (fruit, amount) in fruits {
-            let fruit = [fruit: amount * -1]
-            changeStock(of: fruit)
-        }
+    func getStockOf(_ fruit: Fruit) -> Int {
+        let index = findIndexOf(fruit)
+        let stock = fruits[index].amount
+        
+        return stock
+    }
+    
+    func consumeFruits(for fruits: Fruit, amount: Int) {
+        
     }
 
-    func changeStock(of fruits: [Fruit:Int]) {
-        for (fruit, amount) in fruits {
-            guard let currentStock = fruitStock[fruit] else {
-                return
-            }
-            
-            fruitStock.updateValue(currentStock + amount, forKey: fruit)
-        }
+    func changeStock(of fruit: Fruit, amount: Int) {
+        let index = findIndexOf(fruit)
+        fruits[index].amount += amount
     }
 }
