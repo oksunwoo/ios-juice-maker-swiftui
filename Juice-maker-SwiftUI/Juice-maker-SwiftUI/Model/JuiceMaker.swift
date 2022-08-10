@@ -8,8 +8,9 @@
 import Foundation
 
 struct JuiceMaker {
-    private(set) var fruitStore = FruitStore(initialStock: 10)
-    typealias Recipe = [FruitStore.Fruit: Int]
+    private(set) var fruitStore = FruitStore(chosenFruits: ChosenFruits.allCases, initialStock: 10)
+    
+    typealias Recipe = [Fruit: Int]
     
     enum Juice {
         case strawberryJuice

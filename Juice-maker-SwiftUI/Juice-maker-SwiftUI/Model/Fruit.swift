@@ -7,11 +7,21 @@
 
 import Foundation
 
-enum Fruit: CaseIterable {
+struct Fruit: Identifiable {
+    let name: String
+    let emoji: String
+    let amount: Int
+    
+    var id: String {
+        self.name
+    }
+}
+
+enum ChosenFruits: String, CaseIterable {
     case strawberry
     case banana
-    case pineapple
     case kiwi
+    case pineapple
     case mango
     
     var emoji: String {
@@ -20,10 +30,10 @@ enum Fruit: CaseIterable {
             return "🍓"
         case .banana:
             return "🍌"
-        case .pineapple:
-            return "🍍"
         case .kiwi:
             return "🥝"
+        case .pineapple:
+            return "🍍"
         case .mango:
             return "🥭"
         }

@@ -8,18 +8,17 @@
 import Foundation
 
 class FruitStore {
-    private(set) var fruitStock: [Fruit:Int]
+    private(set) var fruits: [Fruit]
     
-    init(initialStock: Int) {
-        let fruits = Fruit.allCases
-        let fruitCount = Array(repeating: initialStock, count: fruits.count)
-        
-        fruitStock = Dictionary(uniqueKeysWithValues: zip(fruits, fruitCount))
+    init(chosenFruits:[ChosenFruits], initialStock: Int) {
+        chosenFruits.forEach { fruit in
+            fruits.append(Fruit(name: fruit.rawValue, emoji: fruit.emoji, amount: initialStock))
+        }
     }
     
-    func getStockOf(_ fruit: Fruit) -> Int? {
+    func getStockOf(_ fruit: Fruit) -> Int {
         guard let currentStock = fruitStock[fruit] else {
-            return nil
+            return -1
         }
         
         return currentStock
