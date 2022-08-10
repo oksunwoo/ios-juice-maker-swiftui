@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     let juiceMaker = JuiceMaker()
+    let juiceMenu = JuiceMaker.Juice.allCases
     
     var body: some View {
         NavigationView {
@@ -18,7 +19,14 @@ struct ContentView: View {
                         FruitView(fruit: fruit)
                     }
                 }
-                    .navigationTitle("맛있는 쥬스를 만들어드려요!")
+                HStack {
+                    ForEach(juiceMenu, id: \.self) { menu in
+                        SingleJuiceOrderButton(juice: menu) {
+                            
+                        }
+                    }
+                }
+                .navigationTitle("맛있는 쥬스를 만들어드려요!")
                 
             }
         }
@@ -32,7 +40,7 @@ struct FruitView: View {
         VStack {
             Text(fruit.emoji)
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 10)
                     .fill()
                     .foregroundColor(.gray)
                     .opacity(0.3)
@@ -42,6 +50,20 @@ struct FruitView: View {
     }
 }
 
+struct SingleJuiceOrderButton: View {
+    var juice: JuiceMaker.Juice
+    var clicked: (() -> Void)
+    
+    var body: some View {
+        Button(action: clicked) {
+            Text(juice.rawValue)
+        }
+        .foregroundColor(.white)
+        .padding()
+        .background(.blue)
+        .cornerRadius(10)
+    }
+}
 
 
 
