@@ -23,7 +23,7 @@ struct ContentView: View {
                 }
                 HStack {
                     ForEach(juiceMenu, id: \.self) { menu in
-                        SingleJuiceOrderButton(juice: menu) {
+                        JuiceOrderButton(juice: menu) {
                             juiceMaker.make(menu)
                         }
                     }
@@ -34,7 +34,7 @@ struct ContentView: View {
                         showModal.toggle()
                     }
                     .sheet(isPresented: $showModal) {
-                        ChangeStockView()
+                        ChangeStockView(showModal: self.$showModal)
                     }
                 }
             }
@@ -62,7 +62,7 @@ struct FruitView: View {
     }
 }
 
-struct SingleJuiceOrderButton: View {
+struct JuiceOrderButton: View {
     var juice: JuiceMaker.Juice
     var clicked: (() -> Void)
     
