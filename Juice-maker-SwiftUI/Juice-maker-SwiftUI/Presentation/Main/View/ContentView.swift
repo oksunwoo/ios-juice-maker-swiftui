@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showModal = false
     let juiceMaker = JuiceMaker()
     let juiceMenu = JuiceMaker.Juice.allCases
     
@@ -28,10 +29,11 @@ struct ContentView: View {
                 }
                 .navigationTitle("맛있는 쥬스를 만들어드려요!")
                 .toolbar {
-                    Button {
-
-                    } label: {
-                        Text("재고수정")
+                    Button("재고수정") {
+                        showModal.toggle()
+                    }
+                    .sheet(isPresented: $showModal) {
+                        ChangeStockView()
                     }
                 }
             }
