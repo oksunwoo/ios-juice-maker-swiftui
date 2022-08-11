@@ -22,12 +22,18 @@ struct ContentView: View {
                 HStack {
                     ForEach(juiceMenu, id: \.self) { menu in
                         SingleJuiceOrderButton(juice: menu) {
-                            
+                            juiceMaker.make(menu)
                         }
                     }
                 }
                 .navigationTitle("맛있는 쥬스를 만들어드려요!")
-                
+                .toolbar {
+                    Button {
+
+                    } label: {
+                        Text("재고수정")
+                    }
+                }
             }
         }
     }
@@ -37,8 +43,9 @@ struct FruitView: View {
     let fruit: Fruit
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Text(fruit.emoji)
+                .font(.system(size: 90))
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill()
@@ -46,6 +53,8 @@ struct FruitView: View {
                     .opacity(0.3)
                 Text("\(fruit.amount)")
             }
+            .frame(width: 110, height: 50)
+            .padding()
         }
     }
 }
@@ -58,13 +67,12 @@ struct SingleJuiceOrderButton: View {
         Button(action: clicked) {
             Text(juice.rawValue)
         }
+        .frame(width: 100, height: 50)
         .foregroundColor(.white)
-        .padding()
         .background(.blue)
         .cornerRadius(10)
     }
 }
-
 
 
 

@@ -40,5 +40,8 @@ class FruitStore {
     func changeStock(of fruit: ChosenFruits, amount: Int) {
         let index = findIndexOf(fruit)
         fruits[index].amount += amount
+        for i in 0..<fruits.count {
+            print("이름: \(fruits[i].name)" + "수량: \( fruits[i].amount)")
+        }
     }
 }
