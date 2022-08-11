@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FruitStore {
+struct FruitStore {
     private(set) var fruits: [Fruit] = []
     
     init(chosenFruits: [ChosenFruits], initialStock: Int) {
@@ -33,11 +33,11 @@ class FruitStore {
         return stock
     }
     
-    func consumeFruits(for fruit: ChosenFruits, amount: Int) {
+    mutating func consumeFruits(for fruit: ChosenFruits, amount: Int) {
         changeStock(of: fruit, amount: amount * -1)
     }
 
-    func changeStock(of fruit: ChosenFruits, amount: Int) {
+    mutating func changeStock(of fruit: ChosenFruits, amount: Int) {
         let index = findIndexOf(fruit)
         fruits[index].amount += amount
         for i in 0..<fruits.count {

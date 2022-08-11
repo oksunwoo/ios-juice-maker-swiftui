@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct JuiceMaker {
-    private(set) var fruitStore = FruitStore(chosenFruits: ChosenFruits.allCases, initialStock: 10)
-    private(set) var juiceMenu = Juice.allCases
+class JuiceMaker: ObservableObject {
+    @Published private(set) var fruitStore = FruitStore(chosenFruits: ChosenFruits.allCases, initialStock: 10)
     typealias Recipe = [ChosenFruits: Int]
     
     enum Juice: String, CaseIterable {

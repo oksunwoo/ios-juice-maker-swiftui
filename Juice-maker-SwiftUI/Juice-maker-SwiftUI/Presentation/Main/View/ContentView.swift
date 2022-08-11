@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showModal = false
-    let juiceMaker = JuiceMaker()
+    @StateObject var juiceMaker = JuiceMaker()
+    
     let juiceMenu = JuiceMaker.Juice.allCases
     
     var body: some View {
