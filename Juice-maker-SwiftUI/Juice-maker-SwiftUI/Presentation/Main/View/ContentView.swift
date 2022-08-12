@@ -34,7 +34,7 @@ struct ContentView: View {
                         showModal.toggle()
                     }
                     .sheet(isPresented: $showModal) {
-                        ChangeStockView(showModal: self.$showModal)
+                        ChangeStockView(showModal: self.$showModal, juiceMaker: juiceMaker)
                     }
                 }
             }
