@@ -63,12 +63,21 @@ struct FruitView: View {
 }
 
 struct JuiceOrderButton: View {
+    @State private var showing = false
     var juice: JuiceMaker.Juice
     var clicked: (() -> Void)
     
     var body: some View {
-        Button(action: clicked) {
-            Text(juice.rawValue)
+        Button(juice.rawValue) {
+            clicked()
+            showing = true
+        }
+        .alert(juice.rawValue + " 나왔습니다! \n 맛있게 드세요 🐸", isPresented: $showing) {
+            Button(role: .none) {
+                
+            } label: {
+                Text("OK")
+            }
         }
         .frame(width: 100, height: 50)
         .foregroundColor(.white)
@@ -76,8 +85,6 @@ struct JuiceOrderButton: View {
         .cornerRadius(10)
     }
 }
-
-
 
 
 
