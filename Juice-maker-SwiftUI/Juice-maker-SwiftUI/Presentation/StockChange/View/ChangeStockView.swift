@@ -17,16 +17,17 @@ struct ChangeStockView: View {
             VStack {
                 HStack {
                     ForEach(juiceMaker.fruitStore.fruits) { fruit in
-                        VStack {
                             FruitView(fruit: fruit)
-                        }
                     }
                 }
-                HStack {
+                HStack(spacing: 70) {
                     ForEach(fruits, id: \.self) { fruit in
-                        StockChangeButton(fruit: fruit) {
+                        StockChangeButton {
                             juiceMaker.addStockOf(fruit)
+                        } subtractAction: {
+                            juiceMaker.subtractStockOf(fruit)
                         }
+
                     }
                 }
             }
@@ -41,16 +42,23 @@ struct ChangeStockView: View {
 }
 
 struct StockChangeButton: View {
-    let fruit: ChosenFruits
-    var clicked: (() -> Void)
+    var addAction: (() -> Void)
+    var subtractAction: (() -> Void)
     
     var body: some View {
-        Button(action: clicked) {
-            Text("\(fruit.rawValue) \n 재고 추가")
+        HStack {
+            Button(action: addAction) {
+                Text("+")
+            }
+            Text("|")
+            Button(action: subtractAction) {
+                Text("-")
+            }
         }
-        .frame(width: 90)
-        .foregroundColor(.white)
-        .background(.blue)
+        .frame(width: 80, height: 40)
+        .background(.gray)
+        .opacity(0.3)
+        .foregroundColor(.black)
         .cornerRadius(10)
     }
 }
