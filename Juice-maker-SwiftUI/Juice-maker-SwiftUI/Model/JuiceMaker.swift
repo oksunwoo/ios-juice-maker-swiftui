@@ -8,7 +8,8 @@
 import Foundation
 
 class JuiceMaker: ObservableObject {
-    @Published private(set) var fruitStore = FruitStore(chosenFruits: ChosenFruits.allCases, initialStock: 10)
+    @Published private(set) var fruitStore = FruitStore(chosenFruits: chosenFruits, initialStock: 10)
+    static let chosenFruits = ChosenFruits.allCases
     typealias Recipe = [ChosenFruits: Int]
     
     enum Juice: String, CaseIterable {
@@ -45,5 +46,13 @@ class JuiceMaker: ObservableObject {
         for (fruit, amount) in recipe {
             fruitStore.consumeFruits(for: fruit, amount: amount)
         }
+    }
+    
+    func addStockOf(_ fruit: ChosenFruits) {
+        fruitStore.changeStock(of: fruit, amount: 1)
+    }
+    
+    func subtractStockOf(_ fruit: ChosenFruits) {
+        fruitStore.changeStock(of: fruit, amount: -1)
     }
 }
